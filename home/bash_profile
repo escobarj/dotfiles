@@ -1,0 +1,28 @@
+# .bash_profile
+
+
+#### Env config
+
+
+
+
+#### Aliases
+
+# workaround failed ssh known hosts
+alias sshi="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
+# custom ls
+alias ls="ls -laG"
+
+# launch screen saver
+alias ss="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+
+
+#### GO lang stuff
+export GOPATH="$HOME/Documents/_Dev/golang"
+export PATH=$GOPATH/bin:$PATH
+
+#### Python virtualenvwrapper stuff
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Documents/_Dev/
+source /usr/local/bin/virtualenvwrapper.sh
