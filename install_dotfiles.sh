@@ -3,16 +3,20 @@
 # This script creates symlinks from the home directory dotfiles in ~/dotfiles
 ############################
 
-dotfiles_dir="~/dotfiles/home"                    # dotfiles directory
-dotfiles_backup_dir="~/.dotfiles_backup"             # old dotfiles backup directory
+dotfiles_dir=~/dotfiles/home
+dotfiles_backup_dir=~/.dotfiles_backup
 
 # create dotfiles_old in homedir
-mkdir -p $dotfiles_backup_dir
+if [[ ! -d $dotfiles_backup_dir ]]; then
+	mkdir -p $dotfiles_backup_dir
+fi
 
 # move any existing dotfiles in homedir to dotfiles.bak directory, then create symlinks 
 for file in "${dotfiles_dir}/*"; do
-	if [[ -f ~/.$file ]]; then
-		mv ~/.$file $dotfiles_backup_dir
+	name=$(basename $file)
+	# echo ~/.${name} $dotfiles_backup_dir
+	if [[ -f ~/.${name} ]]; then
+		mv ~/.${name} $dotfiles_backup_dir/${name}
 	fi
-    ln -s $dotfiles_dir/$file ~/.$file
+    ln -s $file ~/.${name}
 done
