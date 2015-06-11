@@ -2,12 +2,11 @@
 
 
 #### Env config
-
+export PATH=$PATH:~/bin
 
 
 
 #### Aliases
-
 # workaround failed ssh known hosts
 alias sshi="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
