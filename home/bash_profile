@@ -9,6 +9,8 @@ export PATH=$PATH:~/bin
 #### Aliases
 # workaround failed ssh known hosts
 alias sshi="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+# sublime
+alias subl="/Applications/Sublime Text 3.app/Contents/SharedSupport/bin/subl"
 
 # custom ls
 alias ls="ls -laG"
