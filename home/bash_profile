@@ -1,16 +1,27 @@
 # .bash_profile
+#
+
+# Source any local settings
+if [[ -e "${HOME}/.bash_profile_local" ]]; then
+    source "${HOME}/.bash_profile_local"
+fi
 
 
 #### Env config
+# add ~/bin to PATH
+if [[ ! -d "${HOME}/bin" ]]; then
+    mkdir "${HOME}/bin"
+fi
 export PATH=$PATH:~/bin
-
 
 
 #### Aliases
 # workaround failed ssh known hosts
 alias sshi="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 # sublime
-alias subl="/Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl"
+if [[ -e "/Applications/Sublime Text 3.app" ]]; then
+    alias subl="/Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl"
+fi
 
 # custom ls
 alias ls="ls -laG"
@@ -20,10 +31,14 @@ alias ss="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaver
 
 
 #### GO lang stuff
-export GOPATH="$HOME/Documents/_Dev/golang"
-export PATH=$GOPATH/bin:$PATH
+if [[ -d /usr/local/go ]]; then
+    export GOPATH="$HOME/Documents/_Dev/golang"
+    export PATH=$GOPATH/bin:$PATH
+fi
 
-#### Python virtualenvwrapper stuff
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Documents/_Dev/
-source /usr/local/bin/virtualenvwrapper.sh
+#### Python virtualenvwrapper
+if [[ -e /usr/local/bin/virtualenvwrapper.sh ]]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/Documents/_Dev/
+    source /usr/local/bin/virtualenvwrapper.sh
+fi

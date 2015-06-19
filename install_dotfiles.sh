@@ -6,11 +6,7 @@
 CWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 dotfiles_dir="${CWD}/home"
 dotfiles_backup_dir="${HOME}/.dotfiles_backup"
-
-# Debug
-# echo $dotfiles_dir
-# echo $dotfiles_backup_dir
-# exit
+local_settings="${HOME}/.bash_profile_local"
 
 # create dotfiles_old in homedir
 if [[ ! -d $dotfiles_backup_dir ]]; then
