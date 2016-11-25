@@ -18,6 +18,7 @@ brew install tree
 brew install wget
 brew install shellcheck
 brew install youtube-dl
+brew install bash-completion
 
 # Brew cask apps
 brew tap caskroom/cask
