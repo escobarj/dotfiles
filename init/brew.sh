@@ -23,6 +23,7 @@ brew install wget
 brew install shellcheck
 brew install youtube-dl
 brew install bash-completion
+brew install thefuck
 
 echo -e "\n\nInstalling homebrew cask apps..."
 echo "=============================="
@@ -46,6 +47,7 @@ brew cask install mysql-connector-python
 brew cask install platypus
 brew cask install sqlitebrowser
 brew cask install vlc
+brew cask install caskroom/fonts/font-hack
 
 # for home computer
 brew cask install microsoft-office
