@@ -53,7 +53,7 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 
 # IP addresses
 alias externalip="curl ipecho.net/plain ; echo"
-alias ip="ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}'"
+alias ip="ifconfig | grep \"inet \" | grep -v 127.0.0.1 | awk '{print \$2}'"
 
 # Show active network interfaces
 # alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
