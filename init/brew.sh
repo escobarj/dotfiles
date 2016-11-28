@@ -49,16 +49,6 @@ brew cask install sqlitebrowser
 brew cask install vlc
 brew cask install caskroom/fonts/font-hack
 
-# for home computer
-brew cask install microsoft-office
-brew cask install virustotaluploader
-brew cask install dropbox
-brew cask install private-internet-access
-brew cask install ripit
-brew cask install handbrake
-brew cask install atext
-brew cask install airflow
-
 # Brew python packages are handled in python.sh
 
 brew linkapps
