@@ -27,6 +27,7 @@ brew install thefuck
 brew install cookiecutter
 brew install packer
 brew install csshx
+brew install homebrew/completions/vagrant-completion
 
 echo -e "\n\nInstalling homebrew cask apps..."
 echo "=============================="
@@ -52,6 +53,7 @@ brew cask install sqlitebrowser
 brew cask install vlc
 brew cask install caskroom/fonts/font-hack
 brew cask install vagrant
+brew cask install macdown
 
 # Brew python packages are handled in python.sh
 
