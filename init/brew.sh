@@ -55,6 +55,15 @@ brew cask install vlc
 brew cask install caskroom/fonts/font-hack
 brew cask install vagrant
 brew cask install macdown
+brew cask install suspicious-package
+
+# Quick Look plugins
+brew cask install qlcolorcode
+brew cask install qlstephen
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install quicklook-csv
+brew cask install betterzipql
 
 # Brew python packages are handled in python.sh
 
