@@ -28,6 +28,7 @@ brew install cookiecutter
 brew install packer
 brew install csshx
 brew install homebrew/completions/vagrant-completion
+brew install git bash-completion
 
 echo -e "\n\nInstalling homebrew cask apps..."
 echo "=============================="
