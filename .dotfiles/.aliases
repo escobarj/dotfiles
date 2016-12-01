@@ -131,3 +131,8 @@ alias vactivate="source ./venv/bin/activate"
 
 # Ignore failed ssh known hosts
 alias sshi="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
+# SourceTree command line
+if [[ -a "/Applications/SourceTree.app" ]]; then
+    alias stree="/Applications/SourceTree.app/Contents/Resources/stree"
+fi
