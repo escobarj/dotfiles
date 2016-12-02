@@ -1,73 +1,114 @@
 #!/usr/bin/env bash
 
+function core() {
+  echo "\nInstalling core brew packages..."
+  echo   "================================"
+  # Command line packages
+  brew install ssh-copy-id
+  brew install tree
+  brew install wget
+  brew install shellcheck
+  brew install thefuck
+  brew install csshx
+  brew install bash-completion
+  brew install homebrew/completions/vagrant-completion
+  brew install git bash-completion
 
-# Install brew if needed
-if test ! $(which brew); then
-    echo "Installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  # Quick Look plugins
+  brew cask install qlcolorcode
+  brew cask install qlstephen
+  brew cask install qlmarkdown
+  brew cask install quicklook-json
+  brew cask install quicklook-csv
+  brew cask install betterzipql
+
+  # GUI applications
+  brew cask install google-chrome
+  brew cask install firefox
+  brew cask install suspicious-package
+  brew cask install caffeine
+  brew cask install flux
+  brew cask install grandperspective
+  brew cask install caskroom/fonts/font-hack
+}
+
+function extra() {
+  echo "\nInstalling exta brew packages..."
+  echo   "================================"
+  brew cask install vlc
+  brew cask install coconutbattery
+  brew cask install hermes
+  brew install youtube-dl
+}
+
+function dev() {
+  echo "\nInstalling dev brew packages..."
+  echo   "================================"
+  brew cask install sublime-text
+  brew cask install atom
+  brew cask install sourcetree
+  brew cask install macdown
+  brew install cookiecutter
+}
+
+function dev-extra() {
+  echo "\nInstalling dev-exta brew packages..."
+  echo   "================================"
+  brew install packer
+  brew cask install vagrant
+  brew cask install pycharm
+  brew cask install mysqlworkbench
+  brew cask install sequel-pro
+  brew cask install mysql-connector-python
+  brew cask install sqlitebrowser
+  brew cask install platypus
+}
+
+function cleanup() {
+  brew upgrade
+  brew linkapps
+  brew cleanup
+}
+
+function init() {
+  if test ! $(which brew); then
+      echo "Installing homebrew"
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  brew tap caskroom/cask
+  brew update
+}
+
+function confirm() {
+  read -p "Are you sure you want to install $1? (y/n) " -n 1
+  echo ""
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
+    exit 1
+  fi
+
+  init
+}
+
+# main
+if [[ "$1" == "--all" ]] || [[ "$1" == "-a" ]] || [[ "$1" == "a" ]]; then
+  confirm "all brew packages"
+	core
+  extra
+  dev
+  dev-exta
+elif [[ "$1" == "--extra" ]] || [[ "$1" == "-e" ]] || [[ "$1" == "e" ]]; then
+  confirm "core and extra"
+  core
+  extra
+elif [[ "$1" == "--dev" ]] || [[ "$1" == "-d" ]] || [[ "$1" == "d" ]]; then
+  confirm "dev"
+  dev
+elif [[ "$1" == "--dev-extra" ]] || [[ "$1" == "-D" ]] || [[ "$1" == "D" ]]; then
+  confirm "dev and dev-extra"
+  dev
+  dev-extra
+else
+  confirm "core"
+  core
 fi
-
-# Make sure we’re using the latest Homebrew.
-brew update
-
-# Upgrade any already-installed formulae.
-brew upgrade
-
-echo -e "\n\nInstalling homebrew packages..."
-echo "=============================="
-
-# Misc cli tools
-brew install ssh-copy-id
-brew install tree
-brew install wget
-brew install shellcheck
-brew install youtube-dl
-brew install bash-completion
-brew install thefuck
-brew install cookiecutter
-brew install packer
-brew install csshx
-brew install homebrew/completions/vagrant-completion
-brew install git bash-completion
-
-echo -e "\n\nInstalling homebrew cask apps..."
-echo "=============================="
-
-# Brew cask apps
-brew tap caskroom/cask
-brew cask install sublime-text
-brew cask install atom
-brew cask install pycharm
-brew cask install sourcetree
-brew cask install google-chrome
-brew cask install firefox
-brew cask install caffeine
-brew cask install coconutbattery
-brew cask install flux
-brew cask install grandperspective
-brew cask install hermes
-brew cask install mysqlworkbench
-brew cask install sequel-pro
-brew cask install mysql-connector-python
-brew cask install platypus
-brew cask install sqlitebrowser
-brew cask install vlc
-brew cask install caskroom/fonts/font-hack
-brew cask install vagrant
-brew cask install macdown
-brew cask install suspicious-package
-
-# Quick Look plugins
-brew cask install qlcolorcode
-brew cask install qlstephen
-brew cask install qlmarkdown
-brew cask install quicklook-json
-brew cask install quicklook-csv
-brew cask install betterzipql
-
-# Brew python packages are handled in python.sh
-
-brew linkapps
-
-# Remove outdated versions from the cellar.
-brew cleanup
