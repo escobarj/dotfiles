@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
 function core() {
-  echo -e "\nInstalling core brew packages..."
-  echo      "================================"
+  echo "\nInstalling core brew packages..."
+  echo   "================================"
   # Command line packages
   brew install ssh-copy-id
   brew install tree
   brew install wget
-  brew install shellcheck
   brew install thefuck
   brew install csshx
   brew install bash-completion
@@ -44,18 +43,19 @@ function extra() {
 }
 
 function dev() {
-  echo -e "\nInstalling dev brew packages..."
-  echo      "================================"
+  echo "\nInstalling dev brew packages..."
+  echo   "================================"
   brew cask install sublime-text
   brew cask install atom
   brew cask install sourcetree
   brew cask install macdown
   brew install cookiecutter
+  brew install shellcheck
 }
 
 function dev-extra() {
-  echo -e "\nInstalling dev-exta brew packages..."
-  echo     "================================"
+  echo "\nInstalling dev-exta brew packages..."
+  echo   "================================"
   brew install packer
   brew cask install vagrant
   brew cask install pycharm
@@ -85,40 +85,32 @@ function init() {
 function confirm() {
   read -p "Are you sure you want to install $1? (y/n) " -n 1
   echo ""
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    return
-  else
-    exit
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
+    exit 1
   fi
 
   init
 }
 
 # main
-if [[ "$1" =~ ^(-{0,2})a(l{0,2})$ ]]; then
-  confirm "all packages"
+if [[ "$1" == "--all" ]] || [[ "$1" == "-a" ]] || [[ "$1" == "a" ]]; then
+  confirm "all brew packages"
 	core
   extra
   dev
   dev-exta
-elif [[ "$1" =~ ^(-{0,2})e(xtra)?$ ]]; then
-  confirm "the extra packages"
-  extra
-elif [[ "$1" =~ ^(-{0,2})d(ev)?$ ]]; then
-  confirm "the dev packages"
-  dev
-elif [[ "$1" =~ ^(-{0,2})(D|dev-extra)$ ]]; then
-  confirm "the dev-extra packages"
-  dev-extra
-elif [[ "$1" =~ ^(-{0,2})c(ore)?$ ]]; then
-  confirm "the core packages"
+elif [[ "$1" == "--extra" ]] || [[ "$1" == "-e" ]] || [[ "$1" == "e" ]]; then
+  confirm "core and extra"
   core
+  extra
+elif [[ "$1" == "--dev" ]] || [[ "$1" == "-d" ]] || [[ "$1" == "d" ]]; then
+  confirm "dev"
+  dev
+elif [[ "$1" == "--dev-extra" ]] || [[ "$1" == "-D" ]] || [[ "$1" == "D" ]]; then
+  confirm "dev and dev-extra"
+  dev
+  dev-extra
 else
-  echo "Usage: brew.sh group
-group is one of:
-  -c, --core         core packages
-  -e, --extra        extra core packages
-  -d, --dev          dev packages
-  -D, --dev-extra    extra dev packages
-  -a, --all          all packages"
+  confirm "core"
+  core
 fi
