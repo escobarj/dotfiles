@@ -7,7 +7,6 @@ function core() {
   brew install ssh-copy-id
   brew install tree
   brew install wget
-  brew install shellcheck
   brew install thefuck
   brew install csshx
   brew install bash-completion
@@ -23,8 +22,6 @@ function core() {
   brew cask install betterzipql
 
   # GUI applications
-  brew cask install google-chrome
-  brew cask install firefox
   brew cask install suspicious-package
   brew cask install caffeine
   brew cask install flux
@@ -35,9 +32,13 @@ function core() {
 function extra() {
   echo "\nInstalling exta brew packages..."
   echo   "================================"
+  brew cask install google-chrome
+  brew cask install firefox
   brew cask install vlc
   brew cask install coconutbattery
   brew cask install hermes
+  brew cask install createuserpkg
+  brew cask install nvalt
   brew install youtube-dl
 }
 
@@ -49,6 +50,7 @@ function dev() {
   brew cask install sourcetree
   brew cask install macdown
   brew install cookiecutter
+  brew install shellcheck
 }
 
 function dev-extra() {
