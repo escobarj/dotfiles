@@ -31,8 +31,8 @@ function core() {
 }
 
 function extra() {
-  echo "\nInstalling exta brew packages..."
-  echo   "================================"
+  echo -e "\nInstalling exta brew packages..."
+  echo     "================================"
   brew cask install google-chrome
   brew cask install firefox
   brew cask install vlc
