@@ -33,6 +33,9 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 
+# PS custom keywords
+alias ps='ps -axo user=USER,uid=UID,gid=GID,pid=PID,ppid=PPID,%cpu=%CPU,%mem=%MEM,tty=TTY,state=STATE,nice=NICE,start=STARTED,etime=ETIMES,command=COMMAND'
+
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
 alias grep='grep --color=auto'
