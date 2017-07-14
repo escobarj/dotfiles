@@ -40,6 +40,10 @@ function extra() {
   brew cask install hermes
   brew cask install createuserpkg
   brew cask install nvalt
+  brew cask install cakebrew
+  brew cask install endurance
+  brew cask install itsycal
+  brew cask install slack
   brew install youtube-dl
 }
 
@@ -58,6 +62,7 @@ function dev-extra() {
   echo     "================================"
   brew install packer
   brew cask install vagrant
+  brew cast install vmware-fusion
   brew cask install pycharm
   brew cask install mysqlworkbench
   brew cask install sequel-pro
