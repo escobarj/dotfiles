@@ -9,10 +9,10 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
+# alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/Documents/Dev"
+alias p="cd ~/Workspace"
 alias g="git"
 alias h="history"
 alias j="jobs"
@@ -139,3 +139,7 @@ alias sshi="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 if [[ -a "/Applications/SourceTree.app" ]]; then
     alias stree="/Applications/SourceTree.app/Contents/Resources/stree"
 fi
+
+## csshX alias to MacPatch servers
+alias sshmp="csshX --login local mpprod01.llnl.gov mpprod08.llnl.gov mpprod09.llnl.gov mpprod10.llnl.gov"
+alias sshsus="csshX --login local softwareupdate03.llnlg.gov softwareupdate04.llnlg.gov softwareupdate06.llnlg.gov"
