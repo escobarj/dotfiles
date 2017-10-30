@@ -28,10 +28,11 @@ function core() {
   brew cask install flux
   brew cask install grandperspective
   brew cask install caskroom/fonts/font-hack
+  brew cask install shifty
 }
 
 function extra() {
-  echo -e "\nInstalling exta brew packages..."
+  echo -e "\nInstalling extra brew packages..."
   echo     "================================"
   brew cask install google-chrome
   brew cask install firefox
@@ -58,7 +59,7 @@ function dev() {
 }
 
 function dev-extra() {
-  echo -e "\nInstalling dev-exta brew packages..."
+  echo -e "\nInstalling dev-extra brew packages..."
   echo     "================================"
   brew install packer
   brew cask install vagrant
@@ -105,7 +106,7 @@ if [[ "$1" =~ ^(-{0,2})a(l{0,2})$ ]]; then
 	core
   extra
   dev
-  dev-exta
+  dev-extra
 elif [[ "$1" =~ ^(-{0,2})e(xtra)?$ ]]; then
   confirm "the extra packages"
   extra
