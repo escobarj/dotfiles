@@ -226,3 +226,9 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# Launch VNC session to vagrant box
+# Usage: vvnc [boxname]
+function vvnc () {
+  open vnc://vagrant:vagrant@$(vagrant address $1);
+}
