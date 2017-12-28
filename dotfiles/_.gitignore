@@ -12,9 +12,3 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
-
-# This file is for local config, don't push
-# extra_local (commented for inital push of empty file)
-
-# Intall time temp folder
-tmp
