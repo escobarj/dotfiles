@@ -37,6 +37,7 @@ function extra() {
   brew cask install google-chrome
   brew cask install firefox
   brew cask install vlc
+  brew cask install tweeten
   brew cask install coconutbattery
   brew cask install hermes
   brew cask install createuserpkg
