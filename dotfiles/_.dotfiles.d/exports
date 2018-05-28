@@ -23,3 +23,8 @@ export LESS_TERMCAP_md="${yellow}";
 export MANPAGER='less -X';
 
 export VAGRANT_DEFAULT_PROVIDER='vmware_fusion'
+
+# Install Ruby Gems without sudo
+# https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
+export GEM_HOME=$HOMR/.gem
+export PATH="$GEM_HOME/bin:$PATH"
