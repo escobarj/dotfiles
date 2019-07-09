@@ -29,6 +29,7 @@ function core() {
   brew cask install grandperspective
   brew cask install caskroom/fonts/font-hack
   brew cask install shifty
+  brew cask install iterm2
 }
 
 function extra() {
