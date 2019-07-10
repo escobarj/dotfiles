@@ -154,4 +154,4 @@ alias cat="pygmentize -g"
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON="$(which python3)"
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="" -p $(which python3) '
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=" -p $(which python3) "
